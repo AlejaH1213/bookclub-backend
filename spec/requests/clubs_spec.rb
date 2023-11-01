@@ -162,4 +162,21 @@ RSpec.describe "Clubs", type: :request do
       expect(club.book_of_the_month_picture).to eq("https://media.istockphoto.com/id/522513933/photo/book-and-glowing-letters.jpg?s=1024x1024&w=is&k=20&c=8WfzoSTOdY66J5n4UUAdG-H3UbujWClS0Nxaq5Ai9l0=")
     end
   end
+
+  describe "DELETE/destroy" do
+    it 'deletes an existing club' do
+      club = Club.create(
+        name: "Fantasy Book Club",
+        summary: "A club for fans of epic fantasy literature. Join us in exploring magical realms and heroic adventures.",
+        meeting_dates: "1st and 3rd Fridays of each month",
+        book_of_the_month: "The Fellowship of the Ring",
+        book_of_the_month_picture: "https://media.istockphoto.com/id/522513933/photo/book-and-glowing-letters.jpg?s=1024x1024&w=is&k=20&c=8WfzoSTOdY66J5n4UUAdG-H3UbujWClS0Nxaq5Ai9l0="
+      )
+
+      delete "/clubs/#{club.id}"
+
+      expect(response).to have_http_status(200)
+      expect { Club.find(club.id) }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
 end
