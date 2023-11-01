@@ -12,6 +12,16 @@ class ClubsController < ApplicationController
             render json: club.errors, status: 422
         end
     end
+
+    def update
+        club = Club.find(params[:id])
+        if club.update(club_params)
+          render json: club
+        else
+          render json: club.errors, status: 422
+        end
+    end
+
     
     private
     def club_params

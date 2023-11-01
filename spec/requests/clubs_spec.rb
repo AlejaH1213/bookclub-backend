@@ -131,4 +131,35 @@ RSpec.describe "Clubs", type: :request do
       expect(club['book_of_the_month_picture']).to include("can't be blank")
     end
   end
+
+  describe "PUT/update" do
+    it 'updates an existing club' do
+      club = Club.create( 
+        name: "Fantasy Book Club",
+        summary: "A club for fans of epic fantasy literature. Join us in exploring magical realms and heroic adventures.",
+        meeting_dates: "1st and 3rd Fridays of each month",
+        book_of_the_month: "The Fellowship of the Ring",
+        book_of_the_month_picture: "https://media.istockphoto.com/id/522513933/photo/book-and-glowing-letters.jpg?s=1024x1024&w=is&k=20&c=8WfzoSTOdY66J5n4UUAdG-H3UbujWClS0Nxaq5Ai9l0="
+      )
+
+      updated_params = {
+        name: "Fantasy and Sci-Fi Book Club",
+        summary: "A club for fans of epic fantasy and sci-fi literature. Join us in exploring magical realms, heroic adventures, and futuristic worlds.",
+        meeting_dates: "1st and 3rd Fridays of each month",
+        book_of_the_month: "The Fellowship of the Ring",
+        book_of_the_month_picture: "https://media.istockphoto.com/id/522513933/photo/book-and-glowing-letters.jpg?s=1024x1024&w=is&k=20&c=8WfzoSTOdY66J5n4UUAdG-H3UbujWClS0Nxaq5Ai9l0=" 
+      }
+
+      put "/clubs/#{club.id}", params: { club: updated_params }
+
+      club.reload
+
+      expect(response).to have_http_status(200)
+      expect(club.name).to eq("Fantasy and Sci-Fi Book Club")
+      expect(club.summary).to eq("A club for fans of epic fantasy and sci-fi literature. Join us in exploring magical realms, heroic adventures, and futuristic worlds.")
+      expect(club.meeting_dates).to eq("1st and 3rd Fridays of each month")
+      expect(club.book_of_the_month).to eq("The Fellowship of the Ring")
+      expect(club.book_of_the_month_picture).to eq("https://media.istockphoto.com/id/522513933/photo/book-and-glowing-letters.jpg?s=1024x1024&w=is&k=20&c=8WfzoSTOdY66J5n4UUAdG-H3UbujWClS0Nxaq5Ai9l0=")
+    end
+  end
 end
