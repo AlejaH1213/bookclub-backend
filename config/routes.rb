@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :apartments
+  resources :clubs
   devise_for :users,
     path: '',
     path_names: {

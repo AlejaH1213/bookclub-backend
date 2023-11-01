@@ -52,4 +52,14 @@
 
 11. added jwt_denylist
 
+- this concludes the end of our backend structure
+
+## API CONTROLLERS
+
+1. we seed our data to ensure that we could see our users, our clubs and the memberships that ties them together
+
+these are the commands in the Ruby console to see if the user has a club association through memberships:
+  - user1 = User.find(1) <- first we define our user 
+  - user1.clubs <- then we see if this user has clubs associated through the membership 
+
 
