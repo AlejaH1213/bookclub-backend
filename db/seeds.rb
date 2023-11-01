@@ -48,3 +48,19 @@ user3 = User.where(email: "george.orwell@example.com").first_or_create(
     book_of_the_month: "All the Light We Cannot See",
     book_of_the_month_picture: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80&w=2948&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   ]
+
+  club1.each do |club|
+    user1.clubs.create!(club)
+    p "creating #{club}"
+  end
+  
+  club2.each do |club|
+    user2.clubs.create!(club)
+    p "creating #{club}"
+  end
+
+  club3.each do |club|
+    user3.clubs.create!(club)
+    p "creating #{club}"
+  end
+  
