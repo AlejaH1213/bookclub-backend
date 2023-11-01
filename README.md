@@ -62,4 +62,6 @@ these are the commands in the Ruby console to see if the user has a club associa
   - user1 = User.find(1) <- first we define our user 
   - user1.clubs <- then we see if this user has clubs associated through the membership 
 
+2. the controller methods for index, create, update, and delete have been created and the testing for them is also done 
+
 

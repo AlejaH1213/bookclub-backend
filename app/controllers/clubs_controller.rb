@@ -22,6 +22,15 @@ class ClubsController < ApplicationController
         end
     end
 
+    def destroy
+        club = Club.find(params[:id])
+        if club.destroy
+          render json: { message: 'Club deleted successfully' }
+        else
+          render json: { error: 'Failed to delete the club' }, status: 422
+        end
+    end
+
     
     private
     def club_params
