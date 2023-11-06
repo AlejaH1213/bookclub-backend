@@ -54,6 +54,29 @@
 
 - this concludes the end of our backend structure
 
+## JOIN TABLES AND WHAT THEY REQUIRE
+- since our application includes a join table we needed to add more things to our backend:
+1. we modified our seeds to include the creation of memberships from the users and creating a connection between users and clubs through memberships
+2. we created a new controller that is exclusive for the memberships with all the crud actions
+
+3. we modified the routes to include memberships
+
+4. we added validations for the membership resource
+
+5. we included coverage to the membership controllers
+
+6. these were the commands to ensure that the relations were working: 
+p "user1 memberships", user1.memberships
+p "user2 memberships", user2.membership
+p "user1 clubs", user1.clubs
+p "user2 clubs", user2.clubs
+p "club1 memberships", club1.memberships
+p "club2 memberships", club2.memberships
+p "club3 memberships", club3.memberships
+p "club1 users", club1.users
+p "club2 users", club2.users
+p "club3 users", club3.users
+
 ## API CONTROLLERS
 
 1. we seed our data to ensure that we could see our users, our clubs and the memberships that ties them together
