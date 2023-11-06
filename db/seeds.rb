@@ -45,20 +45,20 @@ user2 = User.where(email: "mark.twain@example.com").first_or_create(
 
 
   membership1 = user1.memberships.create(
-    club = club1,
-    name = 'first club'
+    club: club1,
+    name: 'first club'
   )
 
   membership2 = user2.memberships.create(
-    club = club2,
-    name = 'second club'
+    club: club2,
+    name: 'second club'
   )
 
   membership3 = user2.memberships.create(
-    club = club3,
-    name = 'third club'
+    club: club3,
+    name: 'third club'
   )
 
   
-  
+
   
