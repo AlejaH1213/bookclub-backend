@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :clubs
+  resources :memberships
+  resources :clubs do
+    resources :memberships
+  end
   devise_for :users,
     path: '',
     path_names: {
