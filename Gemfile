@@ -72,3 +72,5 @@ gem "devise", "~> 4.9"
 gem 'devise-jwt'
 
 gem 'rack-cors'
+
+gem 'simplecov', require: false, group: :test
