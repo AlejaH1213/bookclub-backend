@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
     def index
-        clubs = Club.all
+        clubs = Club.all.order('id')
         render json: clubs
     end
 

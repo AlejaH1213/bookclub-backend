@@ -1,6 +1,6 @@
 class MembershipsController < ApplicationController
     def index
-        memberships = Membership.all
+        memberships = Membership.all.order('id')
         render json: memberships
     end
 
