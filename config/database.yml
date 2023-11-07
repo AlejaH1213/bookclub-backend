@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: bookclub_app_backend_production
-  username: bookclub_app_backend
-  password: <%= ENV["BOOKCLUB_APP_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
