@@ -88,3 +88,4 @@ these are the commands in the Ruby console to see if the user has a club associa
 2. the controller methods for index, create, update, and delete have been created and the testing for them is also done 
 
 
+removed the slash
